@@ -30,7 +30,7 @@ jobs:
           poetry install
 
       - name: Set environment variables using Github Secrets
-        run: export openai = test_key
+        run: export openai=test_key
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
