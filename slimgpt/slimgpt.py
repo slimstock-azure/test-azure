@@ -3,6 +3,8 @@ import logging
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+
 def define_server():
     app = Flask(__name__)
 
@@ -11,6 +13,7 @@ def define_server():
     def index():
        logging.info("Requested index.html")
        logging.info("Environment variables: " + '\n'.join([f'{k}: {v}' for k, v in sorted(os.environ.items())]))
+       print('test')
        return render_template('index.html')
 
     @app.route('/demo/')
