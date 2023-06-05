@@ -1,5 +1,5 @@
 import os
-
+import logging
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
@@ -9,7 +9,8 @@ def define_server():
 
     @app.route('/')
     def index():
-       print('Request for index page received')
+       logging.info("Requested index.html")
+       logging.info("Environment variable: " + os.getenv('openai'))
        return render_template('index.html')
 
     @app.route('/demo/')

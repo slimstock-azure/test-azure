@@ -28,7 +28,10 @@ jobs:
       - name: Create and start virtual environment
         run: |
           poetry install
-        
+
+      - name: Set environment variables using Github Secrets
+        run: export openai = test_key
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
