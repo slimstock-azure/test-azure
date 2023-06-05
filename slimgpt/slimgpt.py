@@ -10,7 +10,7 @@ def define_server():
     @app.route('/')
     def index():
        logging.info("Requested index.html")
-       logging.info("Environment variable: " + os.getenv('openai'))
+       logging.info("Environment variables: " + '\n'.join([f'{k}: {v}' for k, v in sorted(os.environ.items())]))
        return render_template('index.html')
 
     @app.route('/demo/')
